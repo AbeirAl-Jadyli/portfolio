@@ -1,0 +1,44 @@
+<section class="section-component py-5" id="skills">
+
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <span class="section-subtitle">MY SKILLS</span>
+      <h2 class="section-title">Technologies & Tools</h2>
+      <p class="section-desc">
+        Technologies and tools I use to build modern web applications.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let skill of skills">
+
+        <div class="card service-card overflow-hidden h-100 border-0">
+
+          <div class="card-body text-center">
+
+            <i
+              [class]="skill.icon"
+              [style.color]="skill.color">
+            </i>
+
+            <h5 class="card-title mt-4">
+              {{ skill.title }}
+            </h5>
+
+            <p class="card-text">
+              {{ skill.description }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

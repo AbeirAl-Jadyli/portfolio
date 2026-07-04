@@ -1,0 +1,94 @@
+<section class="contact py-5" id="contact">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h6 class="text-primary fw-bold">
+                CONTACT
+            </h6>
+
+            <h2 class="fw-bold">
+                Get In Touch
+            </h2>
+
+            <p>
+                Feel free to contact me anytime.
+            </p>
+
+        </div>
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+
+                <div class="contact-info ">
+
+                    <h4>Contact Information</h4>
+
+                    <p>
+                        <i class="fa-solid fa-envelope me-2"></i>
+
+                        abeiraljadyli@gmail.com
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone me-2"></i>
+
+                        +20 10 XXX XXXX
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot me-2"></i>
+
+                        Cairo, Egypt
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <form [formGroup]="contactForm"  (ngSubmit)="sendEmail()" >
+
+                    <input
+                    formControlName="name"
+                        type="text"
+                        class="form-control mb-3"
+                        placeholder="Your Name">
+
+                    <input
+                    formControlName="email"
+                        type="email"
+                        class="form-control mb-3"
+                        placeholder="Your Email">
+
+                    <input
+                    formControlName="subject"
+                        type="text"
+                        class="form-control mb-3"
+                        placeholder="Subject">
+
+                    <textarea
+                        formControlName="message"
+                        rows="6"
+                        class="form-control mb-3"
+                        placeholder="Your Message"></textarea>
+
+                    <button class="btn btn-outline-light" [disabled]="loading">
+  {{ loading ? 'Sending...' : 'Send Message' }}
+</button>
+
+                    <p *ngIf="success">Message sent successfully ✅</p>
+<p *ngIf="error">Failed to send ❌</p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
