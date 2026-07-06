@@ -1,24 +1,42 @@
-
 /* style button cv ,and contacts hero */
-.btn-primary{
-   --bs-btn-bg:var(--primary-color);  
+.btn-primary {
+    --bs-btn-bg: var(--primary-color);
 }
-.btn-outline-light{
-   --bs-btn-border-radius: 50px;
+
+.btn-outline-light {
+    --bs-btn-border-radius: 50px;
 }
-.btn{
+
+.btn {
+    --bs-btn-padding-x: 10px;
+    --bs-btn-padding-y: 10px;
     --bs-btn-border-radius: 50px;
     transition: .3s;
 }
-.btn:hover{
+
+.btn:hover {
     transform: translateY(-3px);
-    --bs-btn-box-shadow : 0 15px 35px rgba(13,110,253,.3);
-    
+    --bs-btn-box-shadow: 0 15px 35px rgba(13, 110, 253, .3);
+    box-shadow: 0 15px 35px rgba(13, 110, 253, .3);
 }
 
-.btn-primary:hover{
-    background:#4f46e5;
+.btn-primary:hover {
+    background: #4f46e5;
 }
-.btn-outline-light:hover{
+
+.btn-outline-light:hover {
     color: #000;
-} 
+}
+
+@media (max-width: 992px) {
+    .btn {
+        padding: 10px 20px;
+        margin-top: 16px;
+    }
+
+    .mobile-break {
+        display: inline;
+
+    }
+
+}
