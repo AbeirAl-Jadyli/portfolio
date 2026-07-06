@@ -13,18 +13,18 @@ export class ContactComponent {
   success: boolean = false;
   error: boolean = false;
   loading: boolean = false;
+registrationForm: any;
 
   constructor(private fb: FormBuilder) {
 
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', Validators.required , Validators.minLength(3) , Validators.maxLength(16)],
       email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', Validators.required],
+      subject: ['', Validators.required , Validators.minLength(10) , Validators.maxLength(50)],
+      message: ['', Validators.required , Validators.minLength(20) , Validators.maxLength(50)],
     });
 
   }
-
   sendEmail() {
 
     if (this.contactForm.invalid) {
@@ -35,6 +35,8 @@ export class ContactComponent {
     this.loading = true;
     this.success = false;
     this.error = false;
+
+
 
     emailjs.send(
       'service_o8ncsyg',     // Service ID

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from '../navigation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({
-    behavior: 'smooth'
-  });
-}
+
+  constructor(private _NavigationService:NavigationService) { }
+
+  scrollTo(id: string) {
+    this._NavigationService.scrollTo(id);
+  }
 }

@@ -4,15 +4,15 @@
 
         <div class="text-center mb-5">
 
-            <h6 class="text-primary fw-bold">
+            <h6 class="section-title fw-bold">
                 CONTACT
             </h6>
 
-            <h2 class="fw-bold">
+            <h2 class="section-subtitle fw-bold">
                 Get In Touch
             </h2>
 
-            <p>
+            <p class="description mx-auto">
                 Feel free to contact me anytime.
             </p>
 
@@ -50,38 +50,53 @@
 
             <div class="col-lg-7">
 
-                <form [formGroup]="contactForm"  (ngSubmit)="sendEmail()" >
+                <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
 
-                    <input
-                    formControlName="name"
-                        type="text"
-                        class="form-control mb-3"
-                        placeholder="Your Name">
+                    <!-- *name -->
+                    <input formControlName="name" type="text" class="form-control mb-3" placeholder="Your Name">
+                    <p *ngIf="contactForm.get('name')?.getError('required') &&
+                      contactForm.get('name')?.touched" class="bg-danger">please fillout this field</p>
+                        <p *ngIf="contactForm.get('name')?.getError('minlength')" class="bg-danger">name must be at least
+                            3characters long</p>
+                    <p *ngIf="contactForm.get('name')?.getError('maxlength')" class="bg-danger">name must be at most
+                        16characters long</p>
 
-                    <input
-                    formControlName="email"
-                        type="email"
-                        class="form-control mb-3"
-                        placeholder="Your Email">
 
-                    <input
-                    formControlName="subject"
-                        type="text"
-                        class="form-control mb-3"
-                        placeholder="Subject">
+                    <!--* email -->
+                    <input formControlName="email" type="email" class="form-control mb-3" placeholder="Your Email">
+                    <p *ngIf="contactForm.get('email')?.getError('required') && contactForm.get('email')?.touched"
+                        class="bg-danger">please fillout this field</p>
+                    <p *ngIf="contactForm.get('email')?.getError('email')" class="bg-danger">please write correct
+                        email</p>
 
-                    <textarea
-                        formControlName="message"
-                        rows="6"
-                        class="form-control mb-3"
+
+                    <!-- *subject -->
+                    <input formControlName="subject" type="text" class="form-control mb-3" placeholder="Subject">
+                    <p *ngIf="contactForm.get('subject')?.getError('required') &&
+                      contactForm.get('subject')?.touched" class="bg-danger">please fillout this field</p>
+                    <p *ngIf="contactForm.get('subject')?.getError('maxlength')" class="bg-danger">subject must be at
+                        most 100characters long</p>
+                    <p *ngIf="contactForm.get('subject')?.getError('minlength')" class="bg-danger">subject must be at
+                        least 5characters long</p>
+
+
+                    <!-- * message -->
+                    <textarea formControlName="message" rows="6" class="form-control mb-3"
                         placeholder="Your Message"></textarea>
+                    <p *ngIf="contactForm.get('message')?.getError('required') &&
+                      contactForm.get('message')?.touched" class="bg-danger">please fillout this field</p>
+                    <p *ngIf="contactForm.get('message')?.getError('maxlength')" class="bg-danger">message must be at
+                        most 200characters long</p>
+                    <p *ngIf="contactForm.get('message')?.getError('minlength')" class="bg-danger">message must be at
+                        least 10characters long</p>
+
 
                     <button class="btn btn-outline-light" [disabled]="loading">
-  {{ loading ? 'Sending...' : 'Send Message' }}
-</button>
+                        {{ loading ? 'Sending...' : 'Send Message' }}
+                    </button>
 
                     <p *ngIf="success">Message sent successfully ✅</p>
-<p *ngIf="error">Failed to send ❌</p>
+                    <p *ngIf="error">Failed to send ❌</p>
 
                 </form>
 
