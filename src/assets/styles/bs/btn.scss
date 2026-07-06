@@ -1,0 +1,24 @@
+
+/* style button cv ,and contacts hero */
+.btn-primary{
+   --bs-btn-bg:var(--primary-color);  
+}
+.btn-outline-light{
+   --bs-btn-border-radius: 50px;
+}
+.btn{
+    --bs-btn-border-radius: 50px;
+    transition: .3s;
+}
+.btn:hover{
+    transform: translateY(-3px);
+    --bs-btn-box-shadow : 0 15px 35px rgba(13,110,253,.3);
+    
+}
+
+.btn-primary:hover{
+    background:#4f46e5;
+}
+.btn-outline-light:hover{
+    color: #000;
+} 
